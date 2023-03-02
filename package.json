@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyansh323/eCommerce.git"
+  },
+  "keywords": [
+    "first",
+    "project"
+  ],
+  "author": "priyanshu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyansh323/eCommerce/issues"
+  },
+  "homepage": "https://github.com/priyansh323/eCommerce#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "g": "^2.0.1",
+    "mysql2": "^3.1.2",
+    "pug": "^3.0.2",
+    "sequelize": "^6.29.0",
+    "sequelize-cli": "^6.6.0"
+  }
+}
