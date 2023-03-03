@@ -1,5 +1,5 @@
 const express = require('express')
-const {createUser, getUser, updateUser, init,createCategory,getAllCategory,getCatOnID} = require('../controller')
+const {createUser, getUser, updateUser, init,createCategory,getAllCategory,getCatOnID,updateCat} = require('../controller')
 
 const routed = express.Router();
 
@@ -11,5 +11,6 @@ routed.get('/', init)
 routed.post('/ecom/api/v1/categories',createCategory);
 routed.get('/ecom/api/v1/categories',getAllCategory);getCatOnID
 routed.get('/ecom/api/v1/categories/:id',getCatOnID);
+routed.put('/ecom/api/v1/categories/:id', updateCat);
 
 module.exports = routed

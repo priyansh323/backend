@@ -91,4 +91,24 @@ async function getCatOnID(req,res){
    }
 }
 
-module.exports= {createUser,getUser,updateUser,init,createCategory,getAllCategory,getCatOnID}
+async function updateCat(req,res){
+    const Cid = req.body.id;
+
+   try {
+     const result = await Categories.findOne({where : {id : Cid}});
+     if(result){
+         result.name= req.body.name;
+         result.description= req.body.description;
+         result.save()
+         res.send({msg :'category got updated', updatedCategory : result})
+     }
+     else{
+         res.status(400).send('Category Not Found',error)
+     }
+   } catch (error) {
+    console.log('error in category Extraction on ID',error)
+    res.status(500).send({msg : 'Internal Sever Error'})
+   }
+}
+
+module.exports= {createUser,getUser,updateUser,init,createCategory,getAllCategory,getCatOnID,updateCat}
