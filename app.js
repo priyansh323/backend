@@ -1,8 +1,8 @@
+require('dotenv')
 const {serverPort} = require('./config/config.server')
 const express = require('express')
 const app = express()
 const {sequelize}= require('./models')
-
 const routes = require('./routes')
 
 app.set('view engine','pug')
