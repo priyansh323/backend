@@ -100,7 +100,7 @@ async function updateCat(req,res){
          result.name= req.body.name;
          result.description= req.body.description;
          result.save()
-         res.send({msg :'category got updated', updatedCategory : result})
+         res.send({msg :'category got updated', updatedCategory : coresult})
      }
      else{
          res.status(400).send('Category Not Found',error)
@@ -111,4 +111,27 @@ async function updateCat(req,res){
    }
 }
 
-module.exports= {createUser,getUser,updateUser,init,createCategory,getAllCategory,getCatOnID,updateCat}
+async function deleteCat(req,res){
+    const cId = req.params.id;
+   try {
+     const result = await Categories.destroy({where : {id : cId}});
+     res.send({msg:'category got Deleted', deletedCategory : result})
+   } catch (error) {
+    console.log('error in category deletion',error)
+    res.status(500).send({msg : 'Internal Sever Error'})
+   }
+}
+
+async function getCatOnName(req,res){
+    const cName = req.query.name;
+
+    try {
+        const result = await Categories.findOne({where:{name:cName}});
+        res.send(result)
+    } catch (error) {
+        console.log('error in category deletion',error)
+        res.status(500).send({msg : 'Internal Sever Error'})
+        
+    }
+}
+module.exports= {createUser,getUser,updateUser,init,createCategory,getAllCategory,getCatOnID,updateCat,deleteCat,getCatOnName}
